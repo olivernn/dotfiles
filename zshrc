@@ -29,6 +29,7 @@ MAILCHECK=0
 EDITOR=vim
 
 source "$HOME/.zsh/aliases.zsh"
+source "$HOME/.zsh/tmux.zsh"
 source "$HOME/.zsh/git.zsh"
 source "$HOME/.zsh/prompt.zsh"
 source "$HOME/.zsh/rbenv.zsh"
