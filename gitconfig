@@ -1,0 +1,17 @@
+[user]
+  name = Oliver Nightingale
+  email = oliver.nightingale1@gmail.com
+[color]
+  ui = auto
+[core]
+  pager = less -FMRiX
+  excludesfile = ~/.gitignore_global
+[alias]
+  dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%ar%C(reset)%C(auto)%d%C(reset)%n%s'  --date-order
+  assume = update-index --assume-unchanged
+  unassume = update-index --no-assume-unchanged
+  assumed = "!git ls-files -v | grep ^h | cut -c 3-"
+[grep]
+  extendedRegexp = true
+  lineNumber = true
+  patternType = extended

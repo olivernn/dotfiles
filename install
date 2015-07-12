@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [ "$#" -eq 0 ]; then
+  echo "must supply files or directories to install"
+  exit 1
+fi
+
+link () {
+  src="${1:-}"
+  dst="${2:-}"
+
+  if [ -f "$dst" ] || [ -d "$dst" ]; then
+    echo "skipping $src because destination: $dst already exists"
+  else
+    echo "linking $src to $dst"
+    ln -s "$src" "$dst"
+  fi
+}
+
+for asset in "$@"; do
+  src_path=$(realpath $asset)
+  dst_path="$HOME/.$asset"
+
+  if [ -f "$src_path" ]; then
+    link $src_path $dst_path
+
+  elif [ -d "$src_path" ]; then
+    mkdir -p "$dst_path"
+
+    for sub_asset_src_path in $src_path/*; do
+      sub_asset_name="$(basename $sub_asset_src_path)"
+      sub_asset_dst_path="$dst_path/$sub_asset_name"
+      link "$sub_asset_src_path" "$sub_asset_dst_path"
+    done
+
+  else
+    echo "$src_path not found"
+  fi
+done
