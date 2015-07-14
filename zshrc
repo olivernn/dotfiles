@@ -21,6 +21,7 @@ setopt pushdtohome
 colors
 compinit
 
+DIRSTACKSIZE=8
 HISTSIZE=5000
 SAVEHIST=5000
 HISTFILE=~/.history
