@@ -50,6 +50,7 @@ set laststatus=2
 set backspace=indent,eol,start
 
 source $HOME/.vim/mappings.vim
+source $HOME/.vim/pb.vim
 source $HOME/.vim/airline.vim
 source $HOME/.vim/ctrlp.vim
 source $HOME/.vim/solarized.vim
