@@ -47,6 +47,7 @@ set wrapmargin=0
 set splitbelow
 set splitright
 set laststatus=2
+set backspace=indent,eol,start
 
 source $HOME/.vim/mappings.vim
 source $HOME/.vim/airline.vim
