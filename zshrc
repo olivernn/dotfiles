@@ -37,3 +37,9 @@ source "$HOME/.zsh/prompt.zsh"
 source "$HOME/.zsh/rbenv.zsh"
 source "$HOME/.zsh/rsvm.zsh"
 source "$HOME/.zsh/less.zsh"
+
+# Source any extra config that should not be
+# in the public dotfiles repo
+if [ -f "$HOME/.zsh/extras.zsh" ]; then
+  source "$HOME/.zsh/extras.zsh"
+fi
