@@ -43,3 +43,7 @@ source "$HOME/.zsh/less.zsh"
 if [ -f "$HOME/.zsh/extras.zsh" ]; then
   source "$HOME/.zsh/extras.zsh"
 fi
+
+if (( $+commands[direnv] )); then
+  eval "$(direnv hook zsh)"
+fi
