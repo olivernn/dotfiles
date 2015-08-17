@@ -48,6 +48,7 @@ set splitbelow
 set splitright
 set laststatus=2
 set backspace=indent,eol,start
+set timeout timeoutlen=1000 ttimeoutlen=100
 
 source $HOME/.vim/mappings.vim
 source $HOME/.vim/pb.vim
