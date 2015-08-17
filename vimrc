@@ -16,6 +16,7 @@ Plugin 'wting/rust.vim'
 Plugin 'kana/vim-textobj-user'
 Plugin 'rhysd/vim-textobj-ruby'
 Plugin 'scrooloose/nerdtree'
+Bundle 'cespare/vim-toml'
 
 call vundle#end()
 filetype plugin indent on
