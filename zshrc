@@ -31,6 +31,7 @@ EDITOR=vim
 
 source "$HOME/.zsh/aliases.zsh"
 source "$HOME/.zsh/completion.zsh"
+source "$HOME/.zsh/edit_command_line.zsh"
 source "$HOME/.zsh/tmux.zsh"
 source "$HOME/.zsh/git.zsh"
 source "$HOME/.zsh/prompt.zsh"
