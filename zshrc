@@ -37,6 +37,7 @@ source "$HOME/.zsh/git.zsh"
 source "$HOME/.zsh/prompt.zsh"
 source "$HOME/.zsh/rbenv.zsh"
 source "$HOME/.zsh/rsvm.zsh"
+source "$HOME/.zsh/golang.zsh"
 source "$HOME/.zsh/less.zsh"
 
 # Source any extra config that should not be
