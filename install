@@ -19,7 +19,7 @@ link () {
 }
 
 for asset in "$@"; do
-  src_path=$(readlink -e $asset)
+  src_path="$(pwd)/$asset"
   dst_path="$HOME/.$asset"
 
   if [ -f "$src_path" ]; then
