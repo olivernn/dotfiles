@@ -57,6 +57,7 @@ source $HOME/.vim/airline.vim
 source $HOME/.vim/ctrlp.vim
 source $HOME/.vim/solarized.vim
 source $HOME/.vim/markdown.vim
+source $HOME/.vim/spelling.vim
 
 " A place to add extra configuration that
 " should not end up in the public repo.
