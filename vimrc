@@ -18,6 +18,7 @@ Plugin 'rhysd/vim-textobj-ruby'
 Plugin 'scrooloose/nerdtree'
 Bundle 'cespare/vim-toml'
 Bundle 'fatih/vim-go'
+Plugin 'chikamichi/mediawiki.vim'
 
 call vundle#end()
 filetype plugin indent on
