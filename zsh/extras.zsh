@@ -5,3 +5,7 @@ alias mssh="/usr/local/bin/mssh -A"
 
 export LC_ALL="en_GB.UTF-8"
 export LANG="en_GB.UTF-8"
+
+# BrazilCLI 2.0 Settings
+
+export PATH="/apollo/env/SDETools/bin:$PATH"
