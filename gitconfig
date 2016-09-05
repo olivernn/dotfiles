@@ -16,6 +16,8 @@
   extendedRegexp = true
   lineNumber = true
   patternType = extended
+[init]
+  templatedir = ~/.git_templates
 [ghostwriter "github.com"]
   author = oliver.nightingale1@gmail.com
 [ghostwriter "bitbucket.com"]
