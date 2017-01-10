@@ -1,11 +1,11 @@
 [user]
   name = Oliver Nightingale
-  email = oliver.nightingale1@gmail.com
+  email = oliven@amazon.com
 [color]
   ui = auto
 [core]
   pager = less -FMRiX
-  excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore
   editor = vim
 [alias]
   dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%ar%C(reset)%C(auto)%d%C(reset)%n%s'  --date-order
@@ -24,3 +24,8 @@
   author = oliver.nightingale1@gmail.com
 [ghostwriter "git.amazon.com"]
   author = oliven@amazon.com
+[push]
+	default = simple
+[amazon]
+	append-cr-url = true
+	pull-request-by-default = true
