@@ -1,10 +1,7 @@
 let g:ctrlp_working_path_mode = 2
 let g:ctrlp_match_window_reversed = 0
 
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 nnoremap <Leader>t :CtrlPTag<CR>
 nnoremap <Leader>f :CtrlP<CR>
