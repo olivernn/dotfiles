@@ -19,11 +19,11 @@
 [init]
   templatedir = ~/.git_templates
 [ghostwriter "github.com"]
-  author = oliver.nightingale1@gmail.com
+  email = oliver.nightingale1@gmail.com
 [ghostwriter "bitbucket.com"]
-  author = oliver.nightingale1@gmail.com
+  email = oliver.nightingale1@gmail.com
 [ghostwriter "git.amazon.com"]
-  author = oliven@amazon.com
+  email = oliven@amazon.com
 [push]
 	default = simple
 [amazon]
