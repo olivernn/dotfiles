@@ -9,3 +9,7 @@ export LANG="en_GB.UTF-8"
 # BrazilCLI 2.0 Settings
 
 export PATH="/apollo/env/SDETools/bin:$PATH"
+
+# Postgres
+
+export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
