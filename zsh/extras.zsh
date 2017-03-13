@@ -10,6 +10,13 @@ export LANG="en_GB.UTF-8"
 
 export PATH="/apollo/env/SDETools/bin:$PATH"
 
+alias bb="brazil-build"
+alias bt="brazil-build test"
+alias bs="brazil-build server"
+alias br="brazil-build release"
+
+alias brc="brazil-recursive-cmd"
+
 # Postgres
 
 export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
