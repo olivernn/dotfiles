@@ -15,7 +15,9 @@ alias bt="brazil-build test"
 alias bs="brazil-build server"
 alias br="brazil-build release"
 
-alias brc="brazil-recursive-cmd"
+alias bbr="brazil-recursive-cmd 'brazil-build'"
+alias btr="brazil-recursive-cmd 'brazil-build test'"
+alias brr="brazil-recursive-cmd 'brazil-build release'"
 
 # Postgres
 
