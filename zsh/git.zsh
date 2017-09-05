@@ -19,6 +19,7 @@ precmd() {
 }
 
 alias gs='git status'
+alias gl='git log --oneline'
 alias gb='git branch'
 alias gg='git grep -n'
 alias gd='git diff'
