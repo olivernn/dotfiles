@@ -56,7 +56,7 @@ source $HOME/.vim/mappings.vim
 source $HOME/.vim/pb.vim
 source $HOME/.vim/airline.vim
 source $HOME/.vim/ctrlp.vim
-source $HOME/.vim/solarized.vim
+source $HOME/.vim/colors.vim
 source $HOME/.vim/markdown.vim
 source $HOME/.vim/spelling.vim
 source $HOME/.vim/go.vim
