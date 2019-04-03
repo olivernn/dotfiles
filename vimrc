@@ -1,26 +1,25 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'gmarik/Vundle.vim'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'tpope/vim-fugitive'
-Plugin 'kien/ctrlp.vim'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'tpope/vim-markdown'
-Plugin 'bling/vim-airline'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'wting/rust.vim'
-Plugin 'kana/vim-textobj-user'
-Plugin 'rhysd/vim-textobj-ruby'
-Plugin 'scrooloose/nerdtree'
-Bundle 'cespare/vim-toml'
-Bundle 'fatih/vim-go'
-Plugin 'chikamichi/mediawiki.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'tpope/vim-fugitive'
+Plug 'kien/ctrlp.vim'
+Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
+Plug 'tpope/vim-markdown'
+Plug 'bling/vim-airline'
+Plug 'edkolev/tmuxline.vim'
+Plug 'wting/rust.vim', { 'for': 'rust' }
+Plug 'kana/vim-textobj-user'
+Plug 'rhysd/vim-textobj-ruby'
+Plug 'scrooloose/nerdtree'
+Plug 'cespare/vim-toml', { 'for': 'toml' }
+Plug 'fatih/vim-go', { 'for': 'golang' }
+Plug 'chikamichi/mediawiki.vim'
 
-call vundle#end()
+call plug#end()
+
 filetype plugin indent on
 
 set history=50
