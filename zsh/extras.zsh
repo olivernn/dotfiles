@@ -19,6 +19,3 @@ alias bbr="brazil-recursive-cmd 'brazil-build'"
 alias btr="brazil-recursive-cmd 'brazil-build test'"
 alias brr="brazil-recursive-cmd 'brazil-build release'"
 
-# Postgres
-
-export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
