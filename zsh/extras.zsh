@@ -6,9 +6,9 @@ alias mssh="/usr/local/bin/mssh -A"
 export LC_ALL="en_GB.UTF-8"
 export LANG="en_GB.UTF-8"
 
-# BrazilCLI 2.0 Settings
+# Add Toolbox installed binaries to the PATH
 
-export PATH="/apollo/env/SDETools/bin:$PATH"
+export PATH=$HOME/.toolbox/bin:$PATH
 
 alias bb="brazil-build"
 alias bt="brazil-build test"
