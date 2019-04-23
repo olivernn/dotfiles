@@ -9,6 +9,7 @@ export LANG="en_GB.UTF-8"
 # Add Toolbox installed binaries to the PATH
 
 export PATH=$HOME/.toolbox/bin:$PATH
+export PATH=$PATH:/usr/local/bin  # MIDWAY PATH: Path changed for ssh
 
 alias bb="brazil-build"
 alias bt="brazil-build test"
