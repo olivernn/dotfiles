@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'tpope/vim-fugitive'
 Plug 'kien/ctrlp.vim'
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
 Plug 'tpope/vim-markdown'
 Plug 'bling/vim-airline'
