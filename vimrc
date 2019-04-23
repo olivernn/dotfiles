@@ -15,7 +15,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'rhysd/vim-textobj-ruby'
 Plug 'scrooloose/nerdtree'
 Plug 'cespare/vim-toml', { 'for': 'toml' }
-Plug 'fatih/vim-go', { 'for': 'golang' }
+Plug 'fatih/vim-go'
 Plug 'chikamichi/mediawiki.vim'
 
 call plug#end()
@@ -50,6 +50,7 @@ set splitright
 set laststatus=2
 set backspace=indent,eol,start
 set timeout timeoutlen=1000 ttimeoutlen=100
+set autowrite
 
 source $HOME/.vim/mappings.vim
 source $HOME/.vim/pb.vim
@@ -65,3 +66,7 @@ source $HOME/.vim/go.vim
 if filereadable(glob("$HOME/.vim/extras"))
   source $HOME/.vim/extras.vim
 endif
+
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+      \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+      \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
