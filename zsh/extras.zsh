@@ -23,3 +23,5 @@ alias bbr="brazil-recursive-cmd 'brazil-build'"
 alias btr="brazil-recursive-cmd 'brazil-build test'"
 alias brr="brazil-recursive-cmd 'brazil-build release'"
 
+alias brc="brazil-recursive-cmd"
+
