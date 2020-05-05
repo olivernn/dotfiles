@@ -1,7 +1,15 @@
-alias ll='ls -lGpFh'
-alias la='ll -a'
+if [ -x "$(command -v exa)" ]; then
+  alias ll='exa --long --classify --time-style long-iso --git'
+  alias la='ll -a'
 
-alias tree='tree -C'
+  alias tree='exa --tree'
+  alias lt='ll --tree'
+else
+  alias ll='ls -lGpFh'
+  alias la='ll -a'
+
+  alias tree='tree -C'
+fi
 
 alias dh='dirs -v'
 
