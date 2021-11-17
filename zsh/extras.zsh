@@ -1,4 +1,4 @@
-export DESKTOP="dev-dsk-oliven-1b-517af0f2.eu-west-1.amazon.com"
+export DESKTOP="dev-dsk-oliven-1b-a404e8fc.eu-west-1.amazon.com"
 alias desktop='ssh -A $DESKTOP'
 alias d='mosh $DESKTOP'
 
@@ -25,3 +25,6 @@ alias brr="brazil-recursive-cmd 'brazil-build release'"
 
 alias brc="brazil-recursive-cmd"
 
+if (( $+commands[padloper] )); then
+  eval "$(padloper setup)"
+fi

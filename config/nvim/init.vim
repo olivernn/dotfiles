@@ -2,6 +2,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'leafgarland/typescript-vim'
+Plug 'ianks/vim-tsx'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'fatih/vim-go'
@@ -50,6 +52,7 @@ set termguicolors
 syntax on
 
 source $HOME/.config/nvim/go.vim
+source $HOME/.config/nvim/typescript.vim
 source $HOME/.config/nvim/mappings.vim
 source $HOME/.config/nvim/theme.vim
 

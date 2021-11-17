@@ -27,7 +27,7 @@ SAVEHIST=5000
 HISTFILE=~/.history
 MAILCHECK=0
 
-EDITOR=vim
+EDITOR=nvim
 
 source "$HOME/.zsh/aliases.zsh"
 source "$HOME/.zsh/completion.zsh"
@@ -36,6 +36,7 @@ source "$HOME/.zsh/tmux.zsh"
 source "$HOME/.zsh/git.zsh"
 source "$HOME/.zsh/prompt.zsh"
 source "$HOME/.zsh/rbenv.zsh"
+source "$HOME/.zsh/nodenv.zsh"
 source "$HOME/.zsh/rust.zsh"
 source "$HOME/.zsh/rsvm.zsh"
 source "$HOME/.zsh/golang.zsh"
@@ -51,3 +52,5 @@ fi
 if (( $+commands[direnv] )); then
   eval "$(direnv hook zsh)"
 fi
+
+export PATH=$HOME/.toolbox/bin:$PATH

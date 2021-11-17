@@ -1,0 +1,38 @@
+set relativenumber
+set number
+set ignorecase
+set smartcase
+set scrolloff=3         " 3 lines above/below cursor when scrolling
+set visualbell
+set cursorline
+set showcmd
+set laststatus=2
+set linebreak
+
+set ideajoin
+set commentry
+set surround
+
+let mapleader=","
+
+vmap = gq
+nmap = gqap
+nmap == :action ReformatCode<CR>
+
+nmap <C-H> <C-W><C-H>
+nmap <C-J> <C-W><C-J>
+nmap <C-K> <C-W><C-K>
+nmap <C-L> <C-W><C-L>
+
+nmap <leader><space> :action GotoFile<CR>
+nmap <leader>c :action GotoClass<CR>
+nmap <leader>d :action QuickJavaDoc<CR>
+nmap <leader>i :action ParameterInfo<CR>
+nmap <leader>r :action RenameElement<CR>
+nmap <leader>v :action IntroduceVariable<CR>
+nmap <leader>= :action ReformatCode<CR>
+nmap <leader>, :action QuickActions<CR>
+nmap <leader>m :action FileStructurePopup<CR>
+
+imap jk <Esc>
+

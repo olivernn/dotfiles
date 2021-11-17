@@ -24,6 +24,8 @@ alias gb='git branch'
 alias gg='git grep -n'
 alias gd='git diff'
 alias gc='git commit'
+alias gca='git commit --amend --no-edit'
 alias ga='git add --patch'
 alias gdc='git diff --cached'
 alias gco='git checkout'
+alias gb="git branch --sort=-committerdate --format='%(HEAD) %(if)%(HEAD)%(then)%(color:bold blue)%(else)%(end)%(committerdate:relative) %(refname:short)%(color:reset)'"
