@@ -21,4 +21,5 @@ cask "monodraw"
 
 tap "homebrew/cask-fonts"
 cask "font-fira-code"
+cask "font-fira-code-nerd-font"
 
