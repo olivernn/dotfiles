@@ -13,3 +13,5 @@ map('n', '<C-H>', '<C-W><C-H>', options)
 map('n', '<C-r>', '<cmd>lua reload_nvim_conf()<CR>', options)
 
 map('n', '<LEADER><SPACE>', '<cmd>Telescope find_files<CR>', options)
+
+map('n', '<LEADER>1', '<cmd>NvimTreeToggle<cr>', options)
