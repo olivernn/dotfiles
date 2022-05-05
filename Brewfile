@@ -14,6 +14,11 @@ brew "rbenv"
 brew "ruby-build"
 brew "go"
 
+# Apps
+cask "kitty"
+cask "alfred"
+cask "monodraw"
+
 tap "homebrew/cask-fonts"
 cask "font-fira-code"
 
