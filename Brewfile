@@ -9,6 +9,9 @@ brew "tree"
 # LSPs
 brew "lua-language-server"
 
+# Languages
+brew "go"
+
 tap "homebrew/cask-fonts"
 cask "font-fira-code"
 
