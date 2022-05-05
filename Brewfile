@@ -10,6 +10,8 @@ brew "tree"
 brew "lua-language-server"
 
 # Languages
+brew "rbenv"
+brew "ruby-build"
 brew "go"
 
 tap "homebrew/cask-fonts"
