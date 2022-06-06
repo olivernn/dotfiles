@@ -99,5 +99,6 @@ require('scope')
 require('lsp')
 require('brazil')
 require('golang')
+require('typescript')
 require('completion')
 
