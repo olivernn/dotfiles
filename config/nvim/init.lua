@@ -36,6 +36,12 @@ require('packer').startup(function(use)
 
   use '/Users/oliven/code/NinjaHooks/configuration/vim/amazon/brazil-config'
 
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/nvim-cmp'
+
   if packer_bootstrap then
     require('packer').sync()
   end
@@ -93,3 +99,5 @@ require('scope')
 require('lsp')
 require('brazil')
 require('golang')
+require('completion')
+

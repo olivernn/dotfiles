@@ -8,7 +8,7 @@ vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<C
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
+lsp_attached = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -34,7 +34,7 @@ end
 local servers = { 'solargraph' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
-    on_attach = on_attach,
+    on_attach = lsp_attached,
     flags = {
       -- This will be the default in neovim 0.7+
       debounce_text_changes = 150,
@@ -47,7 +47,7 @@ table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
 require('lspconfig').sumneko_lua.setup {
-  on_attach = on_attach,
+  on_attach = lsp_attached,
   settings = {
     Lua = {
       runtime = {
