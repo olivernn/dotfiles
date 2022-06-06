@@ -1,6 +1,3 @@
-[user]
-  name = Oliver Nightingale
-  email = oliven@amazon.com
 [color]
   ui = auto
 [core]
@@ -20,20 +17,15 @@
   extendedRegexp = true
   lineNumber = true
   patternType = extended
-[init]
-  templatedir = ~/.git_templates
 [rebase]
   autosquash = true
-[ghostwriter "github.com"]
-  email = oliver.nightingale1@gmail.com
-[ghostwriter "bitbucket.com"]
-  email = oliver.nightingale1@gmail.com
-[ghostwriter "git.amazon.com"]
-  email = oliven@amazon.com
 [push]
 	default = simple
-[amazon]
-	append-cr-url = true
-	pull-request-by-default = true
 [pull]
 	ff = only
+
+[includeIf "hasconfig:remote.*.url:ssh://git.amazon.com:2222/**"]
+  path = amzn.inc
+
+[includeIf "hasconfig:remote.*.url:https://github.com/**"]
+  path = home.inc
