@@ -17,6 +17,7 @@ brew "gopls"
 brew "rbenv"
 brew "ruby-build"
 brew "go"
+brew "lua"
 cask "corretto"
 
 # Apps
