@@ -21,6 +21,7 @@ cask "corretto"
 
 # Apps
 cask "kitty"
+cask "alacritty"
 cask "alfred"
 cask "monodraw"
 cask "intellij-idea"
