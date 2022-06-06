@@ -7,6 +7,7 @@ brew "moreutils"
 brew "tree"
 brew "jq"
 brew "jo"
+brew "direnv"
 
 # LSPs
 brew "lua-language-server"
