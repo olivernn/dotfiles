@@ -28,6 +28,9 @@ cask "alfred"
 cask "monodraw"
 cask "intellij-idea"
 
+tap "microsoft/git"
+cask "git-credential-manager-core"
+
 tap "homebrew/cask-fonts"
 cask "font-fira-code"
 cask "font-fira-code-nerd-font"
