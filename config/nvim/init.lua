@@ -42,6 +42,8 @@ require('packer').startup(function(use)
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
 
+  use 'mfussenegger/nvim-jdtls'
+
   if packer_bootstrap then
     require('packer').sync()
   end

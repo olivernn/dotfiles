@@ -42,6 +42,7 @@ source "$HOME/.zsh/rsvm.zsh"
 source "$HOME/.zsh/golang.zsh"
 source "$HOME/.zsh/rust.zsh"
 source "$HOME/.zsh/less.zsh"
+source "$HOME/.zsh/jdtls.zsh"
 
 # Source any extra config that should not be
 # in the public dotfiles repo
