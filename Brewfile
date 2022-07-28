@@ -8,6 +8,7 @@ brew "tree"
 brew "jq"
 brew "jo"
 brew "direnv"
+brew "fzf"
 
 # LSPs
 brew "lua-language-server"
