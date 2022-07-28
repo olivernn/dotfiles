@@ -1,4 +1,9 @@
 require('telescope').setup {
+  pickers = {
+    git_files = {
+      show_untracked = true
+    }
+  },
   extensions = {
     fzf = {
       fuzzy = true,                    -- false will only do exact matching
