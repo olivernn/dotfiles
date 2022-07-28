@@ -1,4 +1,5 @@
 local map = vim.api.nvim_set_keymap
+local unmap = vim.api.nvim_del_keymap
 
 vim.g.mapleader = ","
 
@@ -15,3 +16,6 @@ map('n', '<C-r>', '<cmd>lua reload_nvim_conf()<CR>', options)
 map('n', '<LEADER><SPACE>', '<cmd>Telescope find_files<CR>', options)
 
 map('n', '<LEADER>1', '<cmd>NvimTreeToggle<cr>', options)
+
+-- For compatibilty with VIM
+unmap('n', 'Y')
