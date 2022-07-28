@@ -4,6 +4,7 @@ local util = require "lspconfig/util"
 require('go').setup()
 
 lspconfig.gopls.setup {
+  on_attach = lsp_attached,
   cmd = { "gopls", "serve" },
   filetypes = { "go", "gomod" },
   root_dir = util.root_pattern("go.work", "go.mod", ".git"),
