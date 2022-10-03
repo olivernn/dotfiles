@@ -9,6 +9,8 @@ brew "jq"
 brew "jo"
 brew "direnv"
 brew "fzf"
+brew "git-delta"
+brew "bat"
 
 # LSPs
 brew "lua-language-server"
