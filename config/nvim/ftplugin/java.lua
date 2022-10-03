@@ -1,13 +1,13 @@
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
-local root_dir = require('jdtls.setup').find_root({ '.git', 'mvnw', 'gradlew', 'build.xml', 'build.gradle' })
+-- local root_dir = require('jdtls.setup').find_root({ '.git', 'mvnw', 'gradlew', 'build.xml', 'build.gradle' })
 
-local ws_folders_lsp = {}
+local root_dir = require("jdtls.setup").find_root({ "packageInfo" }, "Config")
+
 local ws_folders_jdtls = {}
 if root_dir then
   local file = io.open(root_dir .. "/.bemol/ws_root_folders", "r");
   if file then
     for line in file:lines() do
-      table.insert(ws_folders_lsp, line);
       table.insert(ws_folders_jdtls, string.format("file://%s", line))
     end
     file:close()
@@ -50,6 +50,3 @@ local config = {
 -- or attaches to an existing client & server depending on the `root_dir`.
 require('jdtls').start_or_attach(config)
 
-for _, line in ipairs(ws_folders_lsp) do
-  vim.lsp.buf.add_workspace_folder(line)
-end
