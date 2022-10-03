@@ -1,7 +1,7 @@
 [color]
   ui = auto
 [core]
-  pager = less -FMRiX
+  pager = delta
   excludesfile = /Users/oliven/.gitignore
   editor = nvim
 [alias]
