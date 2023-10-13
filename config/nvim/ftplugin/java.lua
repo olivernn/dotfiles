@@ -3,6 +3,9 @@
 
 local root_dir = require("jdtls.setup").find_root({ "packageInfo" }, "Config")
 
+local home = os.getenv("HOME")
+local eclipse_workspace = home .. "/.local/share/eclipse/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
+
 local ws_folders_jdtls = {}
 if root_dir then
   local file = io.open(root_dir .. "/.bemol/ws_root_folders", "r");
@@ -17,7 +20,12 @@ end
 local config = {
   -- The command that starts the language server
   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
-  cmd = { 'jdtls' },
+  cmd = {
+    'jdtls',
+    "--jvm-arg=-javaagent:" .. home .. "/Developer/lombok.jar",
+    "--data",
+    eclipse_workspace,
+  },
 
   -- 💀
   -- This is the default if not provided, you can remove it. Or adjust as needed.

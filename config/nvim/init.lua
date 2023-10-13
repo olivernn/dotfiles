@@ -1,109 +1,179 @@
-print("hello, Lua")
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+local uv = vim.uv or vim.loop
 
--- Bootstrapping packer
-local fn = vim.fn
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+-- Auto-install lazy.nvim if not present
+if not uv.fs_stat(lazypath) then
+  print('Installing lazy.nvim...')
+  vim.fn.system({
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable',
+    lazypath
+  })
+  print('Done.')
 end
 
-require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
-  use 'neovim/nvim-lspconfig'
-  use 'dracula/vim'
+vim.opt.rtp:prepend(lazypath)
 
-  use({
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-  })
+vim.opt.showcmd = true
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.cursorline = true
 
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons', -- for file icon
+vim.opt.backup = false
+vim.opt.swapfile = false
+
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.list = true
+vim.opt.listchars = 'tab:»·,trail:·'
+
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
+vim.opt.termguicolors = true
+
+local opts = {
+  install = {
+    missing = true,
+    colorscheme = { 'dracula' }
+  }
+}
+
+require('lazy').setup({
+  { 'williamboman/mason.nvim' },
+  { 'williamboman/mason-lspconfig.nvim' },
+  {
+    'maxmx03/dracula.nvim',
+    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    opts = {},
+  },
+  {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v3.x',
+    lazy = true,
+    config = false,
+  },
+  {
+    'neovim/nvim-lspconfig',
+    dependencies = {
+      { 'hrsh7th/cmp-nvim-lsp' },
+    }
+  },
+  {
+    'hrsh7th/nvim-cmp',
+    dependencies = {
+      { 'L3MON4D3/LuaSnip' }
     },
-    config = function() require 'nvim-tree'.setup {} end
-  }
-
-  use {
+  },
+  {
     'nvim-telescope/telescope.nvim',
-    requires = { { 'nvim-lua/plenary.nvim' } }
+    tag = '0.1.4',
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  },
+  { 'nvim-treesitter/nvim-treesitter' },
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = {
+      { 'nvim-tree/nvim-web-devicons' },
+    },
+  },
+  {
+    'nvim-tree/nvim-tree.lua',
+    lazy = false,
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
+  },
+  {
+    'kylechui/nvim-surround',
+  },
+  {
+    url = 'oliven@git.amazon.com:pkg/NinjaHooks',
+    branch = 'mainline',
+    lazy = false,
+    config = function (plugin)
+      vim.opt.rtp:prepend(plugin.dir .. '/configuration/vim/amazon/brazil-config')
+      vim.filetype.add({
+        filename = {
+          ['Config'] = function()
+            vim.b.brazil_package_Config = 1
+            return 'brazilconfig'
+          end
+        }
+      })
+    end
   }
+}, opts)
 
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use { 'numToStr/Comment.nvim' }
-  use { 'ray-x/go.nvim' }
+local lsp_zero = require('lsp-zero')
 
-  use '/Users/oliven/code/NinjaHooks/configuration/vim/amazon/brazil-config'
+lsp_zero.on_attach(function(_, bufnr)
+  -- see :help lsp-zero-keybindings
+  -- to learn the available actions
+  lsp_zero.default_keymaps({ buffer = bufnr })
 
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
-
-  use 'tpope/vim-surround'
-
-  use 'mfussenegger/nvim-jdtls'
-
-  if packer_bootstrap then
-    require('packer').sync()
-  end
+  vim.keymap.set('n', '<LEADER>r', '<cmd>lua vim.lsp.buf.rename()<CR>', { buffer = bufnr })
+  vim.keymap.set('n', '<LEADER>f', '<cmd>lua vim.lsp.buf.format()<CR>', { buffer = bufnr })
+  vim.keymap.set('n', '<LEADER>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', { buffer = bufnr })
 end)
 
-require('Comment').setup()
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  handlers = {
+    lsp_zero.default_setup,
+  },
+})
 
-local set = vim.opt
+local cmp = require('cmp')
+local cmp_action = require('lsp-zero').cmp_action()
 
-set.history = 50
-set.showcmd = true
-set.wildmode = 'list:longest,list:full'
-set.complete = '.,w,b'
-set.incsearch = true
-set.number = true
-set.relativenumber = true
-set.cursorline = true
-set.backup = false
-set.writebackup = false
-set.timeout = false
-set.swapfile = false
-set.ttyfast = true
-set.tabstop = 2
-set.softtabstop = 2
-set.shiftwidth = 2
-set.expandtab = true
-set.wrap = true
-set.linebreak = true
-set.list = true
-set.listchars = 'tab:»·,trail:·'
-set.textwidth = 0
-set.wrapmargin = 0
-set.splitbelow = true
-set.splitright = true
-set.laststatus = 2
-set.backspace = 'indent,eol,start'
-set.timeoutlen = 1000
-set.ttimeoutlen = 100
+cmp.setup({
+  preselect = 'item',
+  mapping = cmp.mapping.preset.insert({
+    ['<Tab>'] = cmp_action.luasnip_supertab(),
+    ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
 
-function _G.reload_nvim_conf()
-  for name, _ in pairs(package.loaded) do
-    if name:match('^core') or name:match('^lsp') or name:match('^plugins') then
-      package.loaded[name] = nil
-    end
-  end
+    -- `Enter` to confirm completion
+    ['<CR>'] = cmp.mapping.confirm({ select = false }),
 
-  dofile(vim.env.MYVIMRC)
-  vim.notify("Nvim configuration reloaded!", vim.log.levels.INFO)
-end
+    -- Ctrl+Space
+    ['<C-Space>'] = cmp.mapping.complete(),
 
-require('colors')
-require('tree')
-require('keys')
-require('scope')
-require('lsp')
+    -- Navigate between snippet placeholder
+    ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+    ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+
+    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-d>'] = cmp.mapping.scroll_docs(4),
+  })
+})
+
+require('nvim-tree').setup()
+require('nvim-surround').setup()
+require('lualine').setup()
+
+vim.cmd.colorscheme 'dracula'
+
+vim.g.mapleader = ","
+
+vim.keymap.set('n', '<C-J>', '<C-W><C-J>')
+vim.keymap.set('n', '<C-K>', '<C-W><C-K>')
+vim.keymap.set('n', '<C-L>', '<C-W><C-L>')
+vim.keymap.set('n', '<C-H>', '<C-W><C-H>')
+
+vim.keymap.set('n', '<LEADER>1', '<cmd>NvimTreeToggle<cr>')
+
+vim.keymap.set('n', '<SPACE><SPACE>', '<cmd>Telescope find_files<CR>')
+vim.keymap.set('n', '<SPACE>s', '<cmd>Telescope live_grep<CR>')
+vim.keymap.set('n', '<SPACE>h', '<cmd>Telescope help_tags<CR>')
+
+-- For compatibilty with VIM
+vim.keymap.del('n', 'Y')
+
 require('brazil')
-require('golang')
-require('ruby')
-require('typescript')
-require('completion')
-
