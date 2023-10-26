@@ -134,13 +134,16 @@ local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
 
 cmp.setup({
+  confirmation = {
+    completeopt = 'menu,menuone,noinsert'
+  },
   preselect = 'item',
   mapping = cmp.mapping.preset.insert({
     ['<Tab>'] = cmp_action.luasnip_supertab(),
     ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
 
     -- `Enter` to confirm completion
-    ['<CR>'] = cmp.mapping.confirm({ select = false }),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
 
     -- Ctrl+Space
     ['<C-Space>'] = cmp.mapping.complete(),
