@@ -4,6 +4,16 @@ env:
 import:
   - "~/.config/alacritty/dracula.yml"
 
+selection:
+  save_to_clipboard: true
+
+window:
+  dynamic_padding: true
+
+  padding:
+    x: 4
+    y: 1
+
 font:
   normal:
     family: FiraCode Nerd Font
