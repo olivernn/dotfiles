@@ -174,6 +174,8 @@ vim.keymap.set('n', '<LEADER>1', '<cmd>NvimTreeToggle<cr>')
 
 vim.keymap.set('n', '<SPACE><SPACE>', '<cmd>Telescope find_files<CR>')
 vim.keymap.set('n', '<SPACE>s', '<cmd>Telescope live_grep<CR>')
+vim.keymap.set('n', '<SPACE>a', '<cmd>Telescope treesitter<CR>')
+vim.keymap.set('n', '<SPACE>q', '<cmd>Telescope diagnostics<CR>')
 vim.keymap.set('n', '<SPACE>h', '<cmd>Telescope help_tags<CR>')
 
 -- For compatibilty with VIM
