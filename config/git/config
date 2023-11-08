@@ -24,6 +24,11 @@
 [pull]
 	ff = only
 
+[bash]
+  showInformativeStatus = true
+  showDirtyState = true
+  showUntrackedFiles = true
+
 [includeIf "hasconfig:remote.*.url:ssh://git.amazon.com:2222/**"]
   path = amzn.inc
 
