@@ -8,6 +8,7 @@ selection:
   save_to_clipboard: true
 
 window:
+  decorations: None
   option_as_alt: OnlyLeft
   dynamic_padding: true
   padding:
