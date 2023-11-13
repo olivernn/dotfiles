@@ -97,7 +97,7 @@ require('lazy').setup({
     url = 'oliven@git.amazon.com:pkg/NinjaHooks',
     branch = 'mainline',
     lazy = false,
-    config = function (plugin)
+    config = function(plugin)
       vim.opt.rtp:prepend(plugin.dir .. '/configuration/vim/amazon/brazil-config')
       vim.filetype.add({
         filename = {
@@ -122,6 +122,13 @@ lsp_zero.on_attach(function(_, bufnr)
   vim.keymap.set('n', '<LEADER>f', '<cmd>lua vim.lsp.buf.format()<CR>', { buffer = bufnr })
   vim.keymap.set('n', '<LEADER>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', { buffer = bufnr })
 end)
+
+lsp_zero.set_sign_icons({
+  error = '',
+  warn = '',
+  hint = '',
+  info = ''
+})
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
